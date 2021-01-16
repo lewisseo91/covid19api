@@ -17,9 +17,9 @@ public class APIRequest {
             BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
             StringBuffer stringBuffer = new StringBuffer();
             String readLine;
-
             while((readLine = responseReader.readLine()) != null) {
-                stringBuffer.append(readLine + "\n");
+                stringBuffer.append(readLine);
+                stringBuffer.append("\n");
             }
             responseReader.close();
             return stringBuffer.toString();

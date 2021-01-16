@@ -11,7 +11,7 @@ public class ApiRequestModel {
     }
 
     public ApiRequestModel(CovidUrl covidUrl) {
-        this.URL = url(covidUrl.getNumOfRows(),  covidUrl.getPageNo(), covidUrl.getStartCreate_dt(), covidUrl.getEndCreateDt());
+        this.URL = url(covidUrl.getNumOfRows(),  covidUrl.getPageNo(), covidUrl.getStartCreateDt(), covidUrl.getEndCreateDt());
         System.out.println(URL);
     }
 
@@ -24,12 +24,12 @@ public class ApiRequestModel {
         return null;
     }
 
-    private String url(int numOfRows, int pageNo, int startCreate_dt, int endCreateDt) {
+    private String url(int numOfRows, int pageNo, int startCreateDt, int endCreateDt) {
         return CovidUrl.URL_BASE +
                 "?serviceKey=" + CovidUrl.SERVICE_KEY +
-                "&numOfRows=" + numOfRows +
                 "&pageNo=" + pageNo +
-                "&startCreate_dt=" + startCreate_dt +
+                "&numOfRows=" + numOfRows +
+                "&startCreateDt=" + startCreateDt +
                 "&endCreateDt=" + endCreateDt;
     }
 

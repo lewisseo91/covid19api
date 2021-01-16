@@ -1,6 +1,8 @@
 package controller;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import model.ApiRequestModel;
+import model.ApiResponseModel;
 import model.CovidUrl;
 
 import java.io.IOException;
@@ -15,12 +17,10 @@ public class InitAPI {
         CovidUrl covidUrl = new CovidUrl(10, 1, 20200420, 20200420);
         ApiRequestModel request = new ApiRequestModel(covidUrl);
         String output = request.requestURL();
-        if( output == null) {
-            System.out.println();
-        }
-        else {
-            System.out.println(output);
-        }
+
+        XmlMapper mapper = new XmlMapper();
+        ApiResponseModel apiResponseModel = mapper.readValue( output, ApiResponseModel.class);
+        System.out.println(apiResponseModel.toString());
 
     }
 

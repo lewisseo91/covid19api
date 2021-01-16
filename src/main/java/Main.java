@@ -9,9 +9,9 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        //InitAPI.init();
+        InitAPI.init();
 
-        testXML();
+//        testXML();
     }
 
     public static void testXML() throws IOException {

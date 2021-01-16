@@ -7,13 +7,13 @@ public class CovidUrl {
 
     private int numOfRows;
     private int pageNo;
-    private int startCreate_dt;
+    private int startCreateDt;
     private int endCreateDt;
 
     public CovidUrl(int numOfRows, int pageNo, int startCreate_dt, int endCreateDt) {
         this.numOfRows = numOfRows;
         this.pageNo = pageNo;
-        this.startCreate_dt = startCreate_dt;
+        this.startCreateDt = startCreate_dt;
         this.endCreateDt = endCreateDt;
     }
 
@@ -33,8 +33,8 @@ public class CovidUrl {
         return pageNo;
     }
 
-    public int getStartCreate_dt() {
-        return startCreate_dt;
+    public int getStartCreateDt() {
+        return startCreateDt;
     }
 
     public int getEndCreateDt() {

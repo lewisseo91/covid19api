@@ -1,30 +1,28 @@
 package model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import model.params.Body;
+import model.params.Header;
 
 @JacksonXmlRootElement(localName = "response")
 public class ApiResponseModel {
 
+    @JsonProperty("header")
+    private Header header;
 
-//    @JacksonXmlElementWrapper(localName = "header", useWrapping = false)
-//    @JacksonXmlProperty(localName = "resultCode")
-    private int resultCode;
-//
-//    @JacksonXmlElementWrapper(localName = "header", useWrapping = false)
-//    @JacksonXmlProperty(localName = "resultMsg")
-    private String resultMsg;
+    @JsonProperty("body")
+    private Body body;
 
     @Override
     public String toString() {
         return "ApiResponseModel{" +
-                ", resultCode=" + resultCode +
-                ", resultMsg='" + resultMsg + '\'' +
+                "header='" + header.toString() + '\'' +
+                "body='" + body.toString() + '\''  +
                 '}';
     }
+
+    public boolean isOk() {
+        return header.getResultCode() == ResponseCode.SUCCESS.getValue();
+    };
 }

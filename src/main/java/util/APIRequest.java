@@ -8,11 +8,14 @@ import java.net.URL;
 
 public class APIRequest {
 
+    private static HttpURLConnection httpURLConnection;//;
+
     public static String getApiRequest(String inputUrl) throws IOException {
         URL url = new URL(inputUrl);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+        httpURLConnection = (HttpURLConnection) url.openConnection();
         httpURLConnection.setRequestProperty("User-Agent", "Mozilla/5.0");
         int responseCode = httpURLConnection.getResponseCode();
+
         if( responseCode == HttpURLConnection.HTTP_OK ) {
             BufferedReader responseReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
             StringBuffer stringBuffer = new StringBuffer();
@@ -22,6 +25,7 @@ public class APIRequest {
                 stringBuffer.append("\n");
             }
             responseReader.close();
+            System.out.println(stringBuffer);
             return stringBuffer.toString();
         }
 

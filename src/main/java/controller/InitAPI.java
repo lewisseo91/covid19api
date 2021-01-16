@@ -12,6 +12,7 @@ public class InitAPI {
 
     public static void init() throws IOException {
         String output = APIRequest.getApiRequest(COVID19_API_URL);
+
         System.out.println(output);
     }
 

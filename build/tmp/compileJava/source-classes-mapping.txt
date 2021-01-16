@@ -1,0 +1,14 @@
+model/CovidUrl.java
+ model.CovidUrl
+controller/InitAPI.java
+ controller.InitAPI
+model/ApiRequestModel.java
+ model.ApiRequestModel
+util/APIRequest.java
+ util.APIRequest
+model/Header.java
+ model.Header
+Main.java
+ Main
+model/ApiResponseModel.java
+ model.ApiResponseModel
